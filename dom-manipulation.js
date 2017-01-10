@@ -11,6 +11,32 @@ function updateFontSize(amount) {
   setFontSizeInPx( getFontSizeInPx() + amount )
 }
 
+function getWidthInPx() {
+  var width = window.getComputedStyle(elementMouseIsOver).width
+  return parseInt( width.replace('px', '') );
+}
+
+function setWidthInPx(width) {
+  elementMouseIsOver.style.width = width + "px"
+}
+
+function updateWidth(amount) {
+  setWidthInPx( getWidthInPx() + amount )
+}
+
+function getHeightInPx() {
+  var height = window.getComputedStyle(elementMouseIsOver).height
+  return parseInt( height.replace('px', '') );
+}
+
+function setHeightInPx(height) {
+  elementMouseIsOver.style.height = height + "px"
+}
+
+function updateHeight(amount) {
+  setHeightInPx( getHeightInPx() + amount )
+}
+
 
 function updateFontWeight(amount) {
   var fontWeight = parseInt( elementMouseIsOver.style.fontWeight )

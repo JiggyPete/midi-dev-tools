@@ -19,6 +19,24 @@ var fontWeightManipulater = {
   }
 }
 
+var widthManipulater = {
+  increment: function() {
+    updateWidth(1);
+  },
+  decrement: function() {
+    updateWidth(-1);
+  }
+}
+
+var heightManipulater = {
+  increment: function() {
+    updateHeight(1);
+  },
+  decrement: function() {
+    updateHeight(-1);
+  }
+}
+
 var manipulation = fontSizeManipulater;
 
 if (navigator.requestMIDIAccess) {
@@ -50,6 +68,12 @@ function onMIDIMessage(message) {
   }
   if( data[0] == "144" && data[1] == "2" ) {
     manipulation = fontWeightManipulater;
+  }
+  if( data[0] == "144" && data[1] == "3" ) {
+    manipulation = widthManipulater;
+  }
+  if( data[0] == "144" && data[1] == "4" ) {
+    manipulation = heightManipulater;
   }
   if( data[0] == "176" && data[1] == "57" ) {
     var value = data[2] * 2;
